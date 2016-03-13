@@ -1,15 +1,15 @@
-// main class
 
+// libraries used 
 #include<iostream>
 #include "TicTacToe.h"
 using namespace std;
-
+// main class
 int main(){
 
 	
 	
 	TicTacToe roundplay;
-	//int c = 0;
+	
 	int teamPlaya = 1;
 
 	roundplay.print();
@@ -24,18 +24,13 @@ int main(){
 		int row, col;
 
 		char comma;
-		cout << "To start a new game please enter -1\n"
-			;
+		
+			
 		cout << "Player " << teamPlaya << ": Enter co-ordinates in the format displayed (row num,column num):";
 		// accept input in the format given above 
 		cin >> row >> comma >> col;
 
-		if (row == -1){
-
-			i = 1;
-			roundplay.reset();
-			continue;
-		}
+	
 
 		// a move is made
 		mov = roundplay.move(row, col, teamPlaya);
@@ -55,7 +50,7 @@ int main(){
 			if (outcome != 0 && outcome != 3){
 
 				system("CLS");
-				cout << "The winner of the game is: Player " << outcome << endl;
+				cout << "Congratulations Player " << outcome << " You are the winner of the game"<<endl;
 				roundplay.print();
 				exit(1);
 			}
@@ -70,8 +65,9 @@ int main(){
 
 		system("CLS");
 		roundplay.print();
-
-
-
+		
+		
 	}
+
+	
 }
