@@ -37,6 +37,92 @@ void TicTacToe::print(){
 	};
 };
 
+
+
+int TicTacToe::Over(){
+	int play1Mov = 0, play2Mov = 0, playIn = 0;
+
+	//check  to see if row is full to make a set
+	for (int i = 1; i <= 3; i++){
+
+		play1Mov = 0, play2Mov = 0;
+		for (int j = 1; j <= 3; j++){
+
+			if (mat[i][j] == 'X')
+				play1Mov++;
+			if (mat[i][j] == 'O')
+				play2Mov++;
+		};
+
+		if (play1Mov == 3)
+			return 1;
+		if (play2Mov == 3)
+			return 2;
+	};
+
+	play1Mov = 0, play2Mov = 0;
+
+	//check for full row of columns to make a set 
+	for (int i = 1; i <= 3; i++){
+
+		play1Mov = 0, play2Mov = 0;
+		for (int j = 1; j <= 3; j++){
+
+			if (mat[j][i] == 'X')
+				play1Mov++;
+			if (mat[j][i] == 'O')
+				play2Mov++;
+			if (mat[j][i] == '*')
+				playIn = 1;
+		};
+		if (play1Mov == 3)
+			return 1;
+		if (play2Mov == 3)
+			return 2;
+	};
+
+	play1Mov = 0, play2Mov = 0;
+
+	//checks the first diagonal to make a set
+	for (int i = 1; i <= 3; i++){
+
+		if (mat[i][i] == 'X')
+			play1Mov++;
+		if (mat[i][i] == 'O')
+			play2Mov++;
+	};
+
+	if (play1Mov == 3)
+		return 1;
+	if (play2Mov == 3)
+		return 2;
+
+	play1Mov = 0, play2Mov = 0;
+
+	//checks the second diagonal to make a set.
+	int t = 1;
+	for (int j = 3; j >= 1; j--)
+	{
+		if (mat[t][j] == 'X')
+			play1Mov++;
+		if (mat[t][j] == 'O')
+			play2Mov++;
+		t++;
+	}
+	if (play1Mov == 3)
+		return 1;
+	if (play2Mov == 3)
+		return 2;
+
+	if (playIn = 1)
+		return 3;
+	else
+		return 0;
+};
+
+
+
+
 // allows a player to make a move  and returns a boolean value true if its a legal move
 bool TicTacToe::move(int row, int col, int player){
 
